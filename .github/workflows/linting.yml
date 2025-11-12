@@ -18,7 +18,7 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           version: 0.8.0
-          args: check --select B
+          args: check --select B .
 
   mypy:
     name: Mypy Type Check
