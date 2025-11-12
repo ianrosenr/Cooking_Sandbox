@@ -11,29 +11,25 @@ jobs:
   ruff:
     name: Ruff Linter
     runs-on: ubuntu-latest
-    container:
-      image: astral-sh/ruff:latest   # lightweight, prebuilt with Ruff
-    steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v5
       - name: 🧹 Run Ruff
-        run: ruff check .
+        uses: astral-sh/ruff-action@v3
 
   mypy:
     name: Mypy Type Check
     runs-on: ubuntu-latest
-    container:
-      image: cytopia/mypy:latest   # lightweight, prebuilt with Mypy
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v5
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.14"
-      - name: 📦 Install Mypy
+      - name: 🔍 Read Python version from environment.yml
+        id: python_version
         run: |
-          python -m pip install --upgrade pip
-          pip install mypy
+          PYTHON_VERSION=$(grep '^- python=' environment.yml | cut -d'=' -f2 | xargs)
+          echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
       - name: 🔍 Run Mypy
-        run: mypy .
+        uses: jashparekh/mypy-action@v3
+        with:
+          path: './src'
+          mypy_flags: '--verbose'
+          python_version: ${{ env.PYTHON_VERSION }}
