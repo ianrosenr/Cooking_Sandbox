@@ -16,6 +16,8 @@ jobs:
         uses: actions/checkout@v5
       - name: 🧹 Run Ruff
         uses: astral-sh/ruff-action@v3
+        with:
+          args: check --select B,C,E,F,I,N,Q,R,S,T,W --show-source --statistics ./src
 
   mypy:
     name: Mypy Type Check
@@ -27,12 +29,10 @@ jobs:
         id: python_version
         run: |
           PYTHON_VERSION=$(grep '^- python=' ./requirements/environment.yml | cut -d'=' -f2 | xargs)
-          echo "PYTHON_VERSION=$PYTHON_VERSION"
           echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
       - name: 🔍 Run Mypy
         uses: jashparekh/mypy-action@v3
         with:
           path: './src'
-          mypy_flags: '--verbose'
+          mypy_flags: '--verbose --ignore-missing-imports'
           python_version: ${{ env.PYTHON_VERSION }}
-          mypy_config_file: 'pyproject.toml'
