@@ -18,7 +18,7 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           version: 0.8.0
-          args: check --select B .
+          args: --select B .
 
   mypy:
     name: Mypy Type Check
@@ -32,8 +32,8 @@ jobs:
           PYTHON_VERSION=$(grep '^- python=' ./requirements/environment.yml | cut -d'=' -f2 | xargs)
           echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
       - name: 🔍 Run Mypy
-        uses: jashparekh/mypy-action@v3
+        uses: jpetrucciani/mypy-check@1.14.1
         with:
-          path: './src'
+          path: '.'
           mypy_flags: '--verbose --ignore-missing-imports'
           python_version: ${{ env.PYTHON_VERSION }}
