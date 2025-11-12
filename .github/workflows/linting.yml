@@ -35,3 +35,4 @@ jobs:
           path: './src'
           mypy_flags: '--verbose'
           python_version: ${{ env.PYTHON_VERSION }}
+          mypy_config_file: 'pyproject.toml'
