@@ -1,3 +1,5 @@
+"""Recipie tags categorized by type for validation and organization."""
+
 TAGS_BY_CATEGORY: dict[str, set[str]] = {
     "dietary": {
         "vegetarian",

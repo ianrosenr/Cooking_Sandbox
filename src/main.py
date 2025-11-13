@@ -1,3 +1,5 @@
+"""Main application file for the Cookbook Sandbox FastAPI application."""
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

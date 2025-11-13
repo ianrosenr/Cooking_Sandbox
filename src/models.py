@@ -1,3 +1,5 @@
+"""Data models for recipes and ingredients using Pydantic."""
+
 from datetime import UTC, datetime, timedelta
 
 from pydantic import BaseModel, Field, HttpUrl, field_validator

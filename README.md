@@ -248,6 +248,8 @@ Each phase focuses on one concept area.
 
 ---
 
+source venv/bin/activate
+
 python3 -c "import yaml, sys; reqs=open('./requirements/requirements.txt').read().splitline
 s(); env={'name': '.venv', 'channels': ['de
 faults', 'conda-forge'], 'dependencies': ['
