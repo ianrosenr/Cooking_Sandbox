@@ -22,7 +22,7 @@ app.add_middleware(
 
 
 @app.get("/")
-async def read_root():
+async def read_root(status: str = "ok"):
     return {"message": "Welcome to the Cookbook Sandbox Application"}
 
 

@@ -8,7 +8,13 @@ exclude = [".venv", "__pycache__", "build", "dist", "migrations", "tests"]
 
 # Linter settings have moved under `[tool.ruff.lint]`
 [tool.ruff.lint]
-select = ["I", "F401"]
+select = [
+    "I",
+    "F401",
+    "D101",
+    "D103",     # pydocstyle: enforce docstring presence + structure
+    "NPY",    # numpy docstring style checks
+]
 ignore = [
     "E501",  # line length
     "N805",  # classmethod 'cls' false positive
