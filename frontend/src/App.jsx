@@ -1,30 +1,50 @@
-export default function App() {
-    return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center p-10">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">CookBook.AI</h1>
-        <p className="text-gray-600 max-w-xl text-center mb-10">
-          A personal sandbox project exploring AI-generated recipes, embeddings, and cooking intelligence.
+import "./App.css";
+
+function App() {
+  return (
+    <div className="page">
+
+      {/* Header */}
+      <header className="header">
+        <div className="logo">CookBook.AI</div>
+
+        <nav className="nav">
+          <ul>
+            <li className="active">Home</li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Main Content */}
+      <main className="content">
+        <h1 className="title">Welcome to CookBook.AI</h1>
+
+        <p className="intro-text">
+          CookBook.AI is your personal AI-powered cooking companion.  
+          This sandbox project explores recipe generation, ingredient intelligence, and culinary creativity.
         </p>
-  
-        <button className="px-6 py-3 bg-green-600 text-white rounded-xl text-lg hover:bg-green-700 mb-8">
-          Generate a Cookbook
-        </button>
-  
-        <div className="flex gap-3">
+
+        <button className="btn-primary">Generate Cookbook</button>
+
+        {/* Search box */}
+        <section className="search-section">
+          <h2 className="section-title">Search Recipes</h2>
           <input
+            className="search-input"
             type="text"
-            placeholder="Search recipes (coming soon)"
-            className="px-4 py-2 border rounded-lg w-64"
+            placeholder="Search for recipes (coming soon)"
           />
-          <button className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
-            Search
-          </button>
-        </div>
-  
-        <footer className="mt-20 text-gray-500 text-sm">
-          © {new Date().getFullYear()} CookBook.AI — Personal Project
-        </footer>
-      </div>
-    );
-  }
-  
+          <button className="btn-secondary">Search</button>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        © {new Date().getFullYear()} CookBook.AI — A personal sandbox project.
+      </footer>
+
+    </div>
+  );
+}
+
+export default App;
