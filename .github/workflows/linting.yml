@@ -28,4 +28,4 @@ jobs:
         with:
           path: '.'
           mypy_flags: '--verbose --ignore-missing-imports'
-          python_version: ${{ env.PYTHON_VERSION }}
+          python_version: 3.12
