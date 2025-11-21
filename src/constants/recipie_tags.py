@@ -1,8 +1,6 @@
-# src/constants/recipe_tags.py
+"""Recipie tags categorized by type for validation and organization."""
 
-from typing import Dict, Set
-
-TAGS_BY_CATEGORY: Dict[str, Set[str]] = {
+TAGS_BY_CATEGORY: dict[str, set[str]] = {
     "dietary": {
         "vegetarian",
         "vegan",
@@ -92,7 +90,39 @@ TAGS_BY_CATEGORY: Dict[str, Set[str]] = {
         "picnic",
         "barbecue",
     },
+    "cuisine_types": {
+        "american",
+        "italian",
+        "mexican",
+        "japanese",
+        "chinese",
+        "korean",
+        "thai",
+        "vietnamese",
+        "indian",
+        "mediterranean",
+        "french",
+        "spanish",
+        "greek",
+        "middle eastern",
+        "caribbean",
+        "african",
+        "ethiopian",
+        "moroccan",
+        "turkish",
+        "german",
+        "british",
+        "brazilian",
+        "argentinian",
+        "peruvian",
+        "cajun",
+        "southern",
+        "fusion",
+        "seafood",
+        "comfort food",
+        "street food",
+    }
 }
 
 # Flatten to a single set for validation
-VALID_TAGS: Set[str] = set().union(*TAGS_BY_CATEGORY.values())
+VALID_TAGS: set[str] = set().union(*TAGS_BY_CATEGORY.values())

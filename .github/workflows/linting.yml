@@ -23,15 +23,9 @@ jobs:
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v5
-      - name: 🔍 Read Python version from environment.yml
-        id: python_version
-        run: |
-          PYTHON_VERSION=$(grep '^- python=' ./requirements/environment.yml | cut -d'=' -f2 | xargs)
-          echo "PYTHON_VERSION=$PYTHON_VERSION"
-          echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
       - name: 🔍 Run Mypy
-        uses: jashparekh/mypy-action@v3
+        uses: jpetrucciani/mypy-check@1.14.1
         with:
-          path: './src'
-          mypy_flags: '--verbose'
-          python_version: ${{ env.PYTHON_VERSION }}
+          path: '.'
+          mypy_flags: '--verbose --ignore-missing-imports'
+          python_version: 3.12
